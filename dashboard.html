@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Dashboard - Track Anything</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Chart.js library for creating charts -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+    <header class="main-header">
+        <div class="container">
+            <h1>My Dashboard</h1>
+        </div>
+    </header>
+
+    <main class="container">
+        <!-- Section to add a new metric to track -->
+        <section class="card add-metric-card">
+            <h2>Add a New Metric</h2>
+            <form id="add-metric-form">
+                <div class="form-group">
+                    <label for="metric-name">Metric Name</label>
+                    <input type="text" id="metric-name" placeholder="e.g., Weight, Sleep Hours" required>
+                </div>
+                <button type="submit" class="btn btn-primary">Track New Metric</button>
+            </form>
+        </section>
+
+        <!-- Section where all the tracked metrics will be displayed -->
+        <section class="metrics-grid" id="metrics-grid">
+            <!-- Metric cards will be dynamically inserted here by JavaScript -->
+        </section>
+    </main>
+
+    <!-- Modal for adding a new data point to an existing metric -->
+    <div id="add-data-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-button">&times;</span>
+            <h2 id="modal-title">Add Data for...</h2>
+            <form id="add-data-form">
+                <div class="form-group">
+                    <label for="metric-value">Value</label>
+                    <input type="number" id="metric-value" step="any" required>
+                </div>
+                <div class="form-group">
+                    <label for="metric-date">Date</label>
+                    <input type="date" id="metric-date" required>
+                </div>
+                <input type="hidden" id="modal-metric-id">
+                <button type="submit" class="btn btn-primary">Save Data</button>
+            </form>
+        </div>
+    </div>
+
+
+    <script src="dashboard.js"></script>
+</body>
+</html>
